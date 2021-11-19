@@ -2,12 +2,338 @@
 $couleur-primaire: #9356DC;
 $couleur-secondaire: #FF79DA;
 $couleur-tertiaire: #99E2D0;
+$gris-sombre: #EAEAEA;
+$gris-clair: #F6F6F6;
 
 
 //#endregion Variables //
 
+//#region General //
 body {
-    color: blue;
-    // font-family: 'Roboto', sans-serif;
-    // font-family: 'Shrikhand', cursive;
+    font-family: 'Roboto', sans-serif;
+    line-height: initial;
 }
+
+header [alt], footer h4, .menu h1 {
+    font-family: 'Shrikhand', cursive;
+}
+
+header [alt] {
+    font-size: xx-large;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0px 1px 10px -3px black;
+    & img {
+        padding: 15px;
+    }
+    & .retour {
+        display: flex;
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        top: 18%;
+        left: 5%;
+        justify-content: center;
+        align-items: center;
+        font-size: x-large;
+        color: black;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.bouton {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient($couleur-secondaire, $couleur-primaire);
+    color: white;
+    padding: 0px 20px;
+    margin: 20px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 15px -6px black;
+    border: none;
+    justify-content: center;
+    width: fit-content;
+    align-self: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-restaurant {
+    width: 100%;
+    height: 350px;
+    & img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+}
+
+//#endregion General //
+
+//#region Info //
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.localisation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: $gris-clair;
+    padding-bottom: 30px;
+    &__btn {
+        width: 100%;
+        background-color: $gris-sombre;
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        align-items: center;
+        gap: 15px;
+        border: none;
+        padding-right: 8%;
+        cursor: pointer;
+    }
+    & h1 {
+        font-size: 25px;
+        margin: 0;
+        padding: 35px 10% 5px 10%;
+    }
+    & h4 {
+        margin: 0;
+        padding: 10px 10%;
+        font-weight: normal;
+    }
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 5%;
+    width: 100%;
+    max-width: 350px;
+    &__instruction {
+        background: $gris-clair;
+        display: flex;
+        height: 65px;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+        border-radius: 15px;
+        box-shadow: 5px 5px 15px -12px black;
+        padding-left: 22%;
+        margin: 10px;
+        & span {
+            position: absolute;
+            top: 17px;
+            left: -12px;
+            background: $couleur-primaire;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 25px;
+        }
+        & .fas {
+            position: absolute;
+            top: 35%;
+            left: 12%;
+        }
+        &--couleur {
+            background: lighten($color: $couleur-primaire, $amount: 35%);
+        }
+    }
+}
+
+//#endregion Info //
+
+//#region Restaurants //
+.restaurants {
+    width: 100%;
+    background: $gris-clair;
+    padding: 20px 5% 30px 5%;
+    box-sizing: border-box;
+    & h2 {
+        margin: 25px 0;
+    }
+    &__card {
+        display: block;
+        width: 100%;
+        max-height: 350px;
+        position: relative;
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 25px;
+        box-shadow: 5px 5px 15px -10px black;
+        color: black;
+        & img {
+            width: 100%;
+            height: 160px;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+        & .nouveau {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: green;
+            padding: 5px 10px;
+            color: white;
+            margin: 0;
+        }
+        & h3 {
+            margin: 5px 15px;
+        }
+        & p {
+            margin: 5px 15px 15px 15px;
+        }
+        & .far {
+            position: absolute;
+            bottom: 25px;
+            right: 20px;
+        }
+    }
+}
+
+//#endregion Restaurants //
+
+//#region Menu //
+.menu {
+    display: flex;
+    flex-direction: column;
+    background: $gris-clair;
+    border-radius: 50px 50px 0 0;
+    padding: 30px 5% 50px 5%;
+    position: relative;
+    gap: 10px;
+    & h1 {
+        margin: 10px 0;
+        font-size: 27px;
+        font-weight: normal;
+    }
+    & .far {
+        position: absolute;
+        top: 42px;
+        right: 30px;
+    }
+    & .bouton {
+        margin-top: 30px;
+        padding: 0 45px;
+        cursor: pointer;
+    }
+}
+
+.grille {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    &__selection {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        & h3 {
+            width: 45px;
+            padding-bottom: 5px;
+            margin: 15px 0;
+            font-weight: normal;
+            border-bottom: 3px solid $couleur-tertiaire;
+        }
+        & button {
+            width: 100%;
+            position: relative;
+            height: 60px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            justify-content: space-evenly;
+            border: none;
+            overflow: hidden;
+            padding: 0 15px;
+            box-shadow: 5px 5px 15px -12px black;
+            border-radius: 15px;
+            margin: 8px 0;
+            & h2 {
+                margin: 5px 0 0 0;
+                font-size: initial;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                width: 100%;
+            }
+            & div {
+                display: flex;
+                height: 20px;
+                justify-content: space-between;
+                width: 99%;
+            }
+            & p {
+                margin: 0;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                font-size: 15px;
+            }
+            & .prix {
+                overflow: visible;
+            }
+            & .check {
+                position: absolute;
+                top: 0px;
+                right: -17%;
+                background: $couleur-tertiaire;
+                color: white;
+                height: 60px;
+                width: 55px;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+
+//#endregion Menu //
+
+//#region Footer //
+footer {
+    width: 100%;
+    background: #353535;
+    color: white;
+    box-sizing: border-box;
+    padding: 5px 7% 15px 7%;
+    & h4 {
+        font-weight: normal;
+        font-size: larger;
+        margin: 15px 0px;
+    }
+    & p {
+        margin: 10px 0;
+    }
+    & .fas {
+        margin-right: 5px;
+        width: 20px;
+    }
+    & a {
+        color: white;
+    }
+}
+
+
+//#endregion Footer //
+
+
