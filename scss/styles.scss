@@ -35,7 +35,7 @@ header {
         height: 50px;
         width: 50px;
         position: absolute;
-        top: 18%;
+        top: 10%;
         left: 5%;
         justify-content: center;
         align-items: center;
@@ -71,10 +71,10 @@ main {
 
 .img-restaurant {
     width: 100%;
-    height: 350px;
+    height: 220px;
     & img {
         width: 100%;
-        height: 400px;
+        height: 125%;
         object-fit: cover;
     }
 }
@@ -168,6 +168,7 @@ main {
     box-sizing: border-box;
     & h2 {
         margin: 25px 0;
+        width: 100%;
     }
     &__card {
         display: block;
@@ -239,7 +240,8 @@ main {
 
 .grille {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 25px;
     &__selection {
         display: flex;
@@ -294,7 +296,7 @@ main {
             & .check {
                 position: absolute;
                 top: 0px;
-                right: -17%;
+                right: -55px;
                 background: $couleur-tertiaire;
                 color: white;
                 height: 60px;
@@ -335,5 +337,77 @@ footer {
 
 
 //#endregion Footer //
+
+//#region Tablette //
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .localisation {
+        width: 50%;
+    }
+
+    .intro {
+        width: 50%;
+        max-width: 500px;
+        margin: 0;
+        padding: 2%;
+        box-sizing: border-box;
+    }
+
+    .restaurants {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        &__card {
+            width: 48%;
+        }
+    }
+
+    .img-restaurant {
+        height: 350px;
+    }
+
+    .grille {
+        &__selection {
+            width: 48%;
+        }
+    }
+}
+
+//#endregion Tablette //
+
+//#region Desktop //
+@media screen and (min-width: 993px) {
+    .intro {
+        max-width: 400px;
+    }
+
+    .restaurants {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        &__card {
+            width: 22%;
+            max-height: 400px;
+            height: 380px;
+            & img {
+                height: 300px;
+            }
+        }
+    }
+
+    .img-restaurant {
+        height: 400px;
+        & img {
+            height: 112%;
+        }
+    }
+
+    .grille {
+        &__selection {
+            width: 32%;
+        }
+    }
+}
+
+//#endregion Desktop //
 
 

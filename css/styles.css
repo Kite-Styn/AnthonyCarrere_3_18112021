@@ -25,7 +25,7 @@ header .retour {
   height: 50px;
   width: 50px;
   position: absolute;
-  top: 18%;
+  top: 10%;
   left: 5%;
   justify-content: center;
   align-items: center;
@@ -62,11 +62,11 @@ main {
 
 .img-restaurant {
   width: 100%;
-  height: 350px;
+  height: 220px;
 }
 .img-restaurant img {
   width: 100%;
-  height: 400px;
+  height: 125%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -155,6 +155,7 @@ main {
 }
 .restaurants h2 {
   margin: 25px 0;
+  width: 100%;
 }
 .restaurants__card {
   display: block;
@@ -223,7 +224,8 @@ main {
 
 .grille {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 25px;
 }
 .grille__selection {
@@ -281,7 +283,7 @@ main {
 .grille__selection button .check {
   position: absolute;
   top: 0px;
-  right: -17%;
+  right: -55px;
   background: #99E2D0;
   color: white;
   height: 60px;
@@ -311,4 +313,65 @@ footer .fas {
 }
 footer a {
   color: white;
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .localisation {
+    width: 50%;
+  }
+
+  .intro {
+    width: 50%;
+    max-width: 500px;
+    margin: 0;
+    padding: 2%;
+    box-sizing: border-box;
+  }
+
+  .restaurants {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .restaurants__card {
+    width: 48%;
+  }
+
+  .img-restaurant {
+    height: 350px;
+  }
+
+  .grille__selection {
+    width: 48%;
+  }
+}
+@media screen and (min-width: 993px) {
+  .intro {
+    max-width: 400px;
+  }
+
+  .restaurants {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .restaurants__card {
+    width: 22%;
+    max-height: 400px;
+    height: 380px;
+  }
+  .restaurants__card img {
+    height: 300px;
+  }
+
+  .img-restaurant {
+    height: 400px;
+  }
+  .img-restaurant img {
+    height: 112%;
+  }
+
+  .grille__selection {
+    width: 32%;
+  }
 }
