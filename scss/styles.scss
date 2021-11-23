@@ -5,8 +5,12 @@ $couleur-tertiaire: #99E2D0;
 $gris-sombre: #EAEAEA;
 $gris-clair: #F6F6F6;
 
-
 //#endregion Variables //
+
+//#region Animations //
+
+
+//#endregion Animations //
 
 //#region General //
 body {
@@ -62,6 +66,12 @@ a {
     justify-content: center;
     width: fit-content;
     align-self: center;
+    transition: all 200ms;
+    opacity: 1;
+    &:hover {
+        opacity: 0.7;
+        box-shadow: 2px 2px 15px 0px black;
+    }
 }
 
 main {
@@ -170,15 +180,18 @@ main {
         margin: 25px 0;
         width: 100%;
     }
+    & div {
+        width: 100%;
+        position: relative;
+        max-height: 350px;
+        margin-bottom: 25px;
+    }
     &__card {
         display: block;
         width: 100%;
-        max-height: 350px;
-        position: relative;
         background: white;
         border-radius: 15px;
         overflow: hidden;
-        margin-bottom: 25px;
         box-shadow: 5px 5px 15px -10px black;
         color: black;
         & img {
@@ -191,9 +204,9 @@ main {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: green;
+            background: $couleur-tertiaire;
             padding: 5px 10px;
-            color: white;
+            color: darken($color: $couleur-tertiaire, $amount: 50);
             margin: 0;
         }
         & h3 {
@@ -202,10 +215,33 @@ main {
         & p {
             margin: 5px 15px 15px 15px;
         }
+        
+    }
+    & .jaime {
+        position: absolute;
+        height: 32px;
+        width: 32px;
+        bottom: 25px;
+        right: 20px;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        padding: 0;
         & .far {
             position: absolute;
-            bottom: 25px;
-            right: 20px;
+            background: linear-gradient($couleur-primaire, $couleur-secondaire);
+            background-clip: text;
+            color: transparent;
+        }
+        & .fas {
+            background: linear-gradient($couleur-primaire, $couleur-secondaire);
+            background-clip: text;
+            color: transparent;
+            transform: scale(0);
+            transition: transform 400ms;
+        }
+        &:hover .fas {
+            transform: scale(1);
         }
     }
 }
@@ -226,10 +262,31 @@ main {
         font-size: 27px;
         font-weight: normal;
     }
-    & .far {
+    & .jaime {
         position: absolute;
+        height: 32px;
+        width: 32px;
         top: 42px;
         right: 30px;
+        border: 0;
+        background: none;
+        cursor: pointer;
+        & .far {
+            position: absolute;
+            background: linear-gradient($couleur-primaire, $couleur-secondaire);
+            background-clip: text;
+            color: transparent;
+        }
+        & .fas {
+            background: linear-gradient($couleur-primaire, $couleur-secondaire);
+            background-clip: text;
+            color: transparent;
+            transform: scale(0);
+            transition: transform 400ms;
+        }
+        &:hover .fas {
+            transform: scale(1);
+        }
     }
     & .bouton {
         margin-top: 30px;
@@ -269,6 +326,11 @@ main {
             box-shadow: 5px 5px 15px -12px black;
             border-radius: 15px;
             margin: 8px 0;
+            cursor: pointer;
+            transition: all 600ms ease-in-out;
+            &:hover {
+                padding-right: 70px;
+            }
             & h2 {
                 margin: 5px 0 0 0;
                 font-size: initial;
@@ -281,7 +343,7 @@ main {
                 display: flex;
                 height: 20px;
                 justify-content: space-between;
-                width: 99%;
+                width: 100%;
             }
             & p {
                 margin: 0;
@@ -303,6 +365,19 @@ main {
                 width: 55px;
                 align-items: center;
                 justify-content: center;
+                transition: all 500ms ease-in-out;
+                
+                & .fas {
+                    transform: rotate(-2turn);
+                    transition: transform 600ms ease-in-out;
+                    font-size: larger;
+                }
+            }
+            &:hover .check {
+                transform: translateX(-55px);
+                & .fas {
+                    transform: rotate(0turn);
+                }
             }
         }
     }
@@ -356,13 +431,17 @@ footer {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        &__card {
+        & div {
             width: 48%;
         }
     }
 
     .img-restaurant {
         height: 350px;
+    }
+
+    .menu .jaime {
+        right: 5%;
     }
 
     .grille {
@@ -384,7 +463,7 @@ footer {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        &__card {
+        & div {
             width: 22%;
             max-height: 400px;
             height: 380px;
@@ -399,6 +478,10 @@ footer {
         & img {
             height: 112%;
         }
+    }
+
+    .menu .jaime {
+        right: 5%;
     }
 
     .grille {

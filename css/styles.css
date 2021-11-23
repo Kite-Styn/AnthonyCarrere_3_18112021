@@ -53,6 +53,12 @@ a {
   width: -moz-fit-content;
   width: fit-content;
   align-self: center;
+  transition: all 200ms;
+  opacity: 1;
+}
+.bouton:hover {
+  opacity: 0.7;
+  box-shadow: 2px 2px 15px 0px black;
 }
 
 main {
@@ -157,15 +163,18 @@ main {
   margin: 25px 0;
   width: 100%;
 }
+.restaurants div {
+  width: 100%;
+  position: relative;
+  max-height: 350px;
+  margin-bottom: 25px;
+}
 .restaurants__card {
   display: block;
   width: 100%;
-  max-height: 350px;
-  position: relative;
   background: white;
   border-radius: 15px;
   overflow: hidden;
-  margin-bottom: 25px;
   box-shadow: 5px 5px 15px -10px black;
   color: black;
 }
@@ -180,9 +189,9 @@ main {
   position: absolute;
   top: 15px;
   right: 15px;
-  background: green;
+  background: #99E2D0;
   padding: 5px 10px;
-  color: white;
+  color: #1b6150;
   margin: 0;
 }
 .restaurants__card h3 {
@@ -191,10 +200,34 @@ main {
 .restaurants__card p {
   margin: 5px 15px 15px 15px;
 }
-.restaurants__card .far {
+.restaurants .jaime {
   position: absolute;
+  height: 32px;
+  width: 32px;
   bottom: 25px;
   right: 20px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+.restaurants .jaime .far {
+  position: absolute;
+  background: linear-gradient(#9356DC, #FF79DA);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+.restaurants .jaime .fas {
+  background: linear-gradient(#9356DC, #FF79DA);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  transform: scale(0);
+  transition: transform 400ms;
+}
+.restaurants .jaime:hover .fas {
+  transform: scale(1);
 }
 
 .menu {
@@ -211,10 +244,33 @@ main {
   font-size: 27px;
   font-weight: normal;
 }
-.menu .far {
+.menu .jaime {
   position: absolute;
+  height: 32px;
+  width: 32px;
   top: 42px;
   right: 30px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.menu .jaime .far {
+  position: absolute;
+  background: linear-gradient(#9356DC, #FF79DA);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+.menu .jaime .fas {
+  background: linear-gradient(#9356DC, #FF79DA);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  transform: scale(0);
+  transition: transform 400ms;
+}
+.menu .jaime:hover .fas {
+  transform: scale(1);
 }
 .menu .bouton {
   margin-top: 30px;
@@ -255,6 +311,11 @@ main {
   box-shadow: 5px 5px 15px -12px black;
   border-radius: 15px;
   margin: 8px 0;
+  cursor: pointer;
+  transition: all 600ms ease-in-out;
+}
+.grille__selection button:hover {
+  padding-right: 70px;
 }
 .grille__selection button h2 {
   margin: 5px 0 0 0;
@@ -268,7 +329,7 @@ main {
   display: flex;
   height: 20px;
   justify-content: space-between;
-  width: 99%;
+  width: 100%;
 }
 .grille__selection button p {
   margin: 0;
@@ -290,6 +351,18 @@ main {
   width: 55px;
   align-items: center;
   justify-content: center;
+  transition: all 500ms ease-in-out;
+}
+.grille__selection button .check .fas {
+  transform: rotate(-2turn);
+  transition: transform 600ms ease-in-out;
+  font-size: larger;
+}
+.grille__selection button:hover .check {
+  transform: translateX(-55px);
+}
+.grille__selection button:hover .check .fas {
+  transform: rotate(0turn);
 }
 
 footer {
@@ -333,12 +406,16 @@ footer a {
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  .restaurants__card {
+  .restaurants div {
     width: 48%;
   }
 
   .img-restaurant {
     height: 350px;
+  }
+
+  .menu .jaime {
+    right: 5%;
   }
 
   .grille__selection {
@@ -355,12 +432,12 @@ footer a {
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  .restaurants__card {
+  .restaurants div {
     width: 22%;
     max-height: 400px;
     height: 380px;
   }
-  .restaurants__card img {
+  .restaurants div img {
     height: 300px;
   }
 
@@ -369,6 +446,10 @@ footer a {
   }
   .img-restaurant img {
     height: 112%;
+  }
+
+  .menu .jaime {
+    right: 5%;
   }
 
   .grille__selection {
