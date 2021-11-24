@@ -1,6 +1,106 @@
+@-webkit-keyframes menu-saffiche {
+  0% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes menu-saffiche {
+  0% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes loading {
+  0% {
+    z-index: 2;
+  }
+  95% {
+    opacity: 1;
+  }
+  99% {
+    z-index: 2;
+    opacity: 0.2;
+  }
+  100% {
+    z-index: -55;
+    opacity: 0;
+  }
+}
+@keyframes loading {
+  0% {
+    z-index: 2;
+  }
+  95% {
+    opacity: 1;
+  }
+  99% {
+    z-index: 2;
+    opacity: 0.2;
+  }
+  100% {
+    z-index: -55;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
 body {
   font-family: "Roboto", sans-serif;
   line-height: initial;
+}
+
+.load {
+  background: #F6F6F6;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-animation: loading 2500ms linear both;
+          animation: loading 2500ms linear both;
+}
+.load__box {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #9356DC;
+  border-radius: 100%;
+  -webkit-animation: spin 1300ms linear 3;
+          animation: spin 1300ms linear 3;
+}
+.load__box--ring {
+  position: absolute;
+  height: 50px;
+  width: 20px;
+  left: 15px;
+  top: 0px;
+}
+.load__box--spinner {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: -15px;
+  left: 0px;
+  background: #9356DC;
+  border-radius: 100%;
 }
 
 header [alt], footer h4, .menu h1 {
@@ -296,7 +396,7 @@ main {
   font-weight: normal;
   border-bottom: 3px solid #99E2D0;
 }
-.grille__selection button {
+.grille__selection .btn {
   width: 100%;
   position: relative;
   height: 60px;
@@ -313,11 +413,29 @@ main {
   margin: 8px 0;
   cursor: pointer;
   transition: all 600ms ease-in-out;
+  -webkit-animation: menu-saffiche 1500ms both;
+          animation: menu-saffiche 1500ms both;
 }
-.grille__selection button:hover {
+.grille__selection .btn--1 {
+  -webkit-animation-delay: 250ms;
+          animation-delay: 250ms;
+}
+.grille__selection .btn--2 {
+  -webkit-animation-delay: 500ms;
+          animation-delay: 500ms;
+}
+.grille__selection .btn--3 {
+  -webkit-animation-delay: 750ms;
+          animation-delay: 750ms;
+}
+.grille__selection .btn--4 {
+  -webkit-animation-delay: 1000ms;
+          animation-delay: 1000ms;
+}
+.grille__selection .btn:hover {
   padding-right: 70px;
 }
-.grille__selection button h2 {
+.grille__selection .btn h2 {
   margin: 5px 0 0 0;
   font-size: initial;
   overflow: hidden;
@@ -325,23 +443,23 @@ main {
   text-overflow: ellipsis;
   width: 100%;
 }
-.grille__selection button div {
+.grille__selection .btn div {
   display: flex;
   height: 20px;
   justify-content: space-between;
   width: 100%;
 }
-.grille__selection button p {
+.grille__selection .btn p {
   margin: 0;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   font-size: 15px;
 }
-.grille__selection button .prix {
+.grille__selection .btn .prix {
   overflow: visible;
 }
-.grille__selection button .check {
+.grille__selection .btn .check {
   position: absolute;
   top: 0px;
   right: -55px;
@@ -353,15 +471,15 @@ main {
   justify-content: center;
   transition: all 500ms ease-in-out;
 }
-.grille__selection button .check .fas {
+.grille__selection .btn .check .fas {
   transform: rotate(-2turn);
   transition: transform 600ms ease-in-out;
   font-size: larger;
 }
-.grille__selection button:hover .check {
+.grille__selection .btn:hover .check {
   transform: translateX(-55px);
 }
-.grille__selection button:hover .check .fas {
+.grille__selection .btn:hover .check .fas {
   transform: rotate(0turn);
 }
 

@@ -1,14 +1,42 @@
 //#region Variables //
-$couleur-primaire: #9356DC;
-$couleur-secondaire: #FF79DA;
-$couleur-tertiaire: #99E2D0;
-$gris-sombre: #EAEAEA;
-$gris-clair: #F6F6F6;
+@import "./variables";
 
 //#endregion Variables //
 
 //#region Animations //
+@keyframes menu-saffiche {
+    0% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
 
+@keyframes loading {
+    0% {
+        z-index: 2;
+    }
+    95% {
+        opacity: 1;
+    }
+    99% {
+        z-index: 2;
+        opacity: 0.2;
+    }
+    100% {
+        z-index: -55;
+        opacity: 0;
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg)
+    }
+}
 
 //#endregion Animations //
 
@@ -16,6 +44,42 @@ $gris-clair: #F6F6F6;
 body {
     font-family: 'Roboto', sans-serif;
     line-height: initial;
+}
+
+.load {
+    background: $gris-clair;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: loading 2500ms linear both;
+    &__box {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border: 5px solid $couleur-primaire;
+        border-radius: 100%;
+        animation: spin 1300ms linear 3;
+        &--ring {
+            position: absolute;
+            height: 50px;
+            width: 20px;
+            left: 15px;
+            top: 0px;
+        }
+        &--spinner {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            top: -15px;
+            left: 0px;
+            background: $couleur-primaire;
+            border-radius: 100%;
+        }
+    }
 }
 
 header [alt], footer h4, .menu h1 {
@@ -311,7 +375,7 @@ main {
             font-weight: normal;
             border-bottom: 3px solid $couleur-tertiaire;
         }
-        & button {
+        & .btn {
             width: 100%;
             position: relative;
             height: 60px;
@@ -328,6 +392,12 @@ main {
             margin: 8px 0;
             cursor: pointer;
             transition: all 600ms ease-in-out;
+            animation: menu-saffiche $menu-aff-dur both;
+            @for $i from 1 through 4 {
+                &--#{$i} {
+                    animation-delay: $menu-aff-del * $i;
+                }
+            }
             &:hover {
                 padding-right: 70px;
             }
