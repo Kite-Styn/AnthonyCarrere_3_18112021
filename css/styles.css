@@ -119,6 +119,7 @@ header {
 }
 header img {
   padding: 15px;
+  width: 175px;
 }
 header .retour {
   display: flex;
@@ -157,8 +158,8 @@ a {
   opacity: 1;
 }
 .bouton:hover {
-  opacity: 0.7;
-  box-shadow: 2px 2px 15px 0px black;
+  opacity: 0.8;
+  box-shadow: 2px 2px 10px -1px black;
 }
 
 main {
@@ -248,6 +249,12 @@ main {
   position: absolute;
   top: 35%;
   left: 12%;
+}
+.intro__instruction .i-gris {
+  color: #7e7e7e;
+}
+.intro__instruction .i-violet {
+  color: #9356DC;
 }
 .intro__instruction--couleur {
   background: #f2eafb;
